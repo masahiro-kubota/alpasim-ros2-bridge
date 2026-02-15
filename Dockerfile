@@ -15,11 +15,12 @@ FROM ros:jazzy
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 1. Install autoware message packages
+# 1. Install autoware message packages and joy
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ros-jazzy-autoware-planning-msgs \
         ros-jazzy-autoware-perception-msgs \
         ros-jazzy-autoware-vehicle-msgs \
+        ros-jazzy-joy \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Install uv
@@ -31,7 +32,7 @@ ENV VIRTUAL_ENV=/opt/venv PATH="/opt/venv/bin:$PATH"
 
 # 4. Install Python dependencies
 RUN uv pip install grpcio grpcio-tools "protobuf>=4.0.0,<5.0.0" \
-    dataclasses-json numpy pytest pytest-asyncio
+    dataclasses-json numpy scipy pytest pytest-asyncio
 
 # 5. Copy proto definitions and compile (.proto -> _pb2.py)
 COPY alpasim_grpc/ /app/alpasim_grpc/

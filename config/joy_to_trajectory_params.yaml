@@ -1,0 +1,26 @@
+# Joy Teleop to Trajectory Parameters
+# PS4 DualShock 4 controller mapping
+
+joy_to_trajectory:
+  ros__parameters:
+    # Update rate (seconds)
+    update_dt: 0.05  # 20 Hz
+
+    # Trajectory horizon
+    time_horizon_sec: 1.0  # 1 second lookahead
+    trajectory_points: 5   # Waypoints in trajectory
+
+    # Speed limits (m/s)
+    max_speed_mps: 20.0
+    min_speed_mps: 0.0
+    default_speed_mps: 5.0  # Used when no VelocityReport available
+
+    # Acceleration limits (m/s^2)
+    max_acceleration_mps2: 10.0
+    max_deceleration_mps2: 10.0
+
+    # Steering limit (rad/s per update_dt)
+    max_steering_rad: 0.5
+
+    # Joy timeout (seconds)
+    joy_timeout_sec: 1.0  # Stop if no Joy input for 1 second
