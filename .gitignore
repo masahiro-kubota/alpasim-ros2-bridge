@@ -6,3 +6,8 @@ build/
 .venv/
 .pytest_cache/
 .mypy_cache/
+
+# Compiled protobuf files (generated at build time)
+*_pb2.py
+*_pb2_grpc.py
+*.pyi
