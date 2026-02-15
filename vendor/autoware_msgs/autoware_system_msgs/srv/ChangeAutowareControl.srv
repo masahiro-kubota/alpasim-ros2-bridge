@@ -1,4 +1,0 @@
-# true: Autoware controls vehicle, false: manual control
-bool autoware_control
----
-autoware_common_msgs/ResponseStatus status
